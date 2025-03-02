@@ -28,9 +28,9 @@ RUN set -ex; \
         && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install setuptools wheel yarl multidict
-RUN pip install enum34
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
+RUN pip install --upgrade pip enum34
 RUN dpkg-reconfigure locales
 COPY . /app
 
